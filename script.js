@@ -2,6 +2,7 @@
 var character = document.getElementById("character");
 var obstacle = document.getElementById("obstacle");
 
+let lg = 3;
 let score = 0;
 
 //fonction qui fait sauter à l'imput//
@@ -31,3 +32,12 @@ function jump(){
         }
  
     },10)
+/*fonction qui change la durée de l'animation de l'obstacle, et donc la vitesse */
+var speedObstacle =setInterval(function() {
+
+        if(score%1000>=19){
+            let root = document.documentElement;
+            root.style.setProperty('--time', (Math.random()+1.8 )+ "s");
+
+        } 
+}, 4000)
