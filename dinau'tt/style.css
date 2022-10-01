@@ -1,0 +1,51 @@
+*{
+    padding: 20;
+    margin: 0   ;
+} 
+#game{
+    background-color:rgb(245, 193, 115);
+    border: 2px solid rebeccapurple;
+    width: 600px;
+    height: 200px;
+}
+
+#character{
+    width: 20px;
+    height: 50px;
+    border: 2px solid black;
+    background-color: blue;
+    position: relative;
+    top: 150px;
+}
+.playAnimation{
+    animation: jump 500ms;
+}
+:root {
+    --time: 1s;
+  }
+    
+#obstacle{
+    width: 18px;
+    height: 18px;
+    position: relative;
+    top: 130px;
+    left: 582px;
+    height: 50px;
+    border: 2px solid black;
+    background-color: brown;
+
+    animation: obstacle var(--time)  infinite linear;
+}
+@keyframes obstacle{
+    from{
+        left: 580px;
+    }
+    to{left:-40px;}
+}
+
+@keyframes jump{
+     0%{top: 150px;}
+     40%{top: 100px;}
+     60%{top: 100px;}
+     100%{top: 150px;}
+}
