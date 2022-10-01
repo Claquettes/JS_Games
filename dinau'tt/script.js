@@ -23,8 +23,7 @@ function jump(){
         if(blockLeft<20 && blockLeft>0 && characterTop>=130){
             obstacle.style.animation ="none";
             obstacle.style.display ="none";
-            alert("Tu as perdu sale Fraude rafraichi la page pour rejouer, et ton Score était: ");
-            alert((score)/10);
+            alert("Tu as perdu sale Fraude rafraichi la page pour rejouer, et ton Score était: "+ (score/10));
         }
         else{
             score++;
