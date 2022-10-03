@@ -44,14 +44,13 @@ let obstacleAnim = function (obs) {
     obs.style.left = newOffset + "px";
 };
 
-//procédure qui va regarder la collision(juxtaposition des deux classes)
+// boucle principale du jeu pour vérifier si on a perdu, compter le score, animer les obstacles...
 var gameLoop = setInterval(function () {
     obstacles.forEach((obs, idx) => {
         var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top")); //recupère la valeur sur l'axe y du char//
         var blockLeft = parseInt(window.getComputedStyle(obs).getPropertyValue("left")); //recupère la valeur sur l'axe x du block//
 
         //// On vérifie si on a perdu
-
         if (blockLeft < 20 && blockLeft > 0 && characterTop >= 130) {
             obstacles.splice(idx, 1); // on cancel l'animation
             obstacleContainer.remove(obs)
@@ -60,14 +59,14 @@ var gameLoop = setInterval(function () {
             clearInterval(checkCollision);
         }
 
+        //// on check si on a jump au dessu d'un bloc
         if (blockLeft < 0) {
             score++;
 
             obstacles.splice(obstacles.indexOf(obs), 1); // on cancel l'animation
             obs.remove();
 
-            console.log("trigger")
-
+            // on rajoute un obstacle après 500ms de délai
             setTimeout(() => {
                 addNewObstacle();
             }, 500);
