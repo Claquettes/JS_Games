@@ -59,7 +59,7 @@ var gameLoop = setInterval(function () {
             clearInterval(checkCollision);
         }
 
-        //// on check si on a jump au dessu d'un bloc
+        //// on check si on a jump au dessus d'un bloc
         if (blockLeft < 0) {
             score++;
 
