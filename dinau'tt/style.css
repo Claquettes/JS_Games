@@ -1,7 +1,8 @@
 *{
     padding: 20;
     margin: 0;
-} 
+}
+
 #game{
     background-color:rgb(245, 193, 115);
     border: 2px solid rebeccapurple;
@@ -17,6 +18,7 @@
     position: relative;
     top: 150px;
 }
+
 .playAnimation{
     animation: jump 500ms;
 }
@@ -30,7 +32,8 @@
     background-color: green;
 
 }
-#obstacle{
+
+.obstacle{
     width: 18px;
     height: 18px;
     position: relative;
