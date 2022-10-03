@@ -24,6 +24,15 @@
     --time: 1s;
   }
     
+#triggerScore{
+    width: 5px;
+    height: 10px;
+    position: relative;
+    top: 110px;
+    left: 4px;
+    background-color: green;
+
+}
 #obstacle{
     width: 18px;
     height: 18px;
