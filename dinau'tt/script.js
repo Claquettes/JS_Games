@@ -1,5 +1,5 @@
 //declaration du joueur, obstacle, et du trigger pour le nombre d'obstacles passés
-const obstacleBaseOffset = 580; // décalage de l'obstacle au début du jeu
+const obstacleBaseOffset = document.getElementById("game").clientWidth; // décalage de l'obstacle au début du jeu
 
 var character = document.getElementById("character");
 var obstacleContainer = document.getElementById("obstacle-container");
@@ -38,7 +38,7 @@ let resetObstacle = function (obs) {
 let obstacleAnim = function (obs) {
     if (obs.style.left == '')
         resetObstacle(obs)
-
+   
     let currentOffset = parseInt(obs.style.left.replace("px", ""));
     let newOffset = (currentOffset - speed <= -40) ? obstacleBaseOffset : currentOffset - speed;
     obs.style.left = newOffset + "px";
@@ -66,16 +66,11 @@ var gameLoop = setInterval(function () {
             obstacles.splice(obstacles.indexOf(obs), 1); // on cancel l'animation
             obs.remove();
 
-            // on rajoute un obstacle après 500ms de délai
-            setTimeout(() => {
-                addNewObstacle();
-            }, 500);
         }
 
         // On anime l'obstacle
         obstacleAnim(obs)
 
-        /// TODO : change speed
 
         document.getElementById("scoretexte").innerHTML = (parseInt(score));
         document.getElementById("leftObstacle").innerHTML = (parseInt(blockLeft)); // va bug si plusieurs obstacles mais on le laisse pour debug
@@ -84,4 +79,8 @@ var gameLoop = setInterval(function () {
 }, 10);
 
 // on lance le jeu :
-let ob = addNewObstacle()
+let ob = setInterval(function(){
+    // on créer un nouvel obstacle tout à droite de l'écran toutes les 2 secondes
+    addNewObstacle()
+    //TODO change speed
+}, 2000);

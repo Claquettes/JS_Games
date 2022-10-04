@@ -6,7 +6,7 @@
 #game{
     background-color:rgb(245, 193, 115);
     border: 2px solid rebeccapurple;
-    width: 600px;
+    width: 100%;
     height: 200px;
 }
 
@@ -38,11 +38,13 @@
     height: 18px;
     position: relative;
     top: 130px;
-    left: 580px;
+    left: 100%;
     height: 50px;
     border: 2px solid black;
     background-color: brown;
+    display: inline-block;
 }
+
 
 @keyframes jump{
      0%{top: 150px;}
