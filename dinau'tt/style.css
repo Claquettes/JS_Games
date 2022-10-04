@@ -1,7 +1,8 @@
 *{
     padding: 20;
-    margin: 0   ;
-} 
+    margin: 0;
+}
+
 #game{
     background-color:rgb(245, 193, 115);
     border: 2px solid rebeccapurple;
@@ -17,13 +18,11 @@
     position: relative;
     top: 150px;
 }
+
 .playAnimation{
     animation: jump 500ms;
 }
-:root {
-    --time: 1s;
-  }
-    
+
 #triggerScore{
     width: 5px;
     height: 10px;
@@ -33,23 +32,16 @@
     background-color: green;
 
 }
-#obstacle{
+
+.obstacle{
     width: 18px;
     height: 18px;
     position: relative;
     top: 130px;
-    left: 582px;
+    left: 580px;
     height: 50px;
     border: 2px solid black;
     background-color: brown;
-
-    animation: obstacle var(--time)  infinite linear;
-}
-@keyframes obstacle{
-    from{
-        left: 580px;
-    }
-    to{left:-40px;}
 }
 
 @keyframes jump{
