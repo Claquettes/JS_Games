@@ -45,12 +45,6 @@
     display: inline-block;
 }
 
-#obstacle-container{
-    width: flex;
-    top: 130px;
-    height: 18px;
-    background-color: azure;
-}
 
 @keyframes jump{
      0%{top: 150px;}
