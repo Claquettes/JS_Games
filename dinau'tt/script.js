@@ -56,7 +56,7 @@ var gameLoop = setInterval(function () {
             obstacleContainer.remove(obs)
 
             alert("Tu as perdu sale Fraude rafraichi la page pour rejouer, et ton Score était: " + (score));
-            clearInterval(checkCollision);
+            clearInterval(gameLoop);
         }
 
         //// on check si on a jump au dessus d'un bloc
