@@ -51,7 +51,6 @@ var gameLoop = setInterval(function () {
         //// On vérifie si on a perdu
         if (blockLeft < 20 && blockLeft > 0 && characterTop >= 130) {
             obstacles.splice(idx, 1); // on cancel l'animation
-            obstacleContainer.remove(obs)
 
             alert("Tu as perdu sale Fraude rafraichi la page pour rejouer, et ton Score était: " + (score));
             clearInterval(gameLoop);
