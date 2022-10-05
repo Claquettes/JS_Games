@@ -1,20 +1,49 @@
+
 *{
     padding: 20;
     margin: 0;
 }
+body {
+    background-color: #ac988d;
+}
 
+h1 {
+     color: black; font-family: 'Helvetica Neue', sans-serif; font-size: 90px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;padding: 40px; 
+}
+
+.annonceScore{
+    color: #111; font-family: 'Open Sans', sans-serif; font-size: 30px; font-weight: 300; line-height: 32px; margin: 0 0 2px; text-align: center;
+}
+
+.scoretexte{
+    color: #111; font-family: 'Open Sans', sans-serif; font-size: 30px; font-weight: 300; line-height: 32px; margin: 0 0 2px; text-align: center;
+}
+
+.credits{
+    color: #111; font-family: 'Open Sans', sans-serif; font-size: 30px; font-weight: 300; line-height: 32px; margin: 0 0 280px; text-align: center; /*280 de marge pour faire le footer, si on change la taille des crédits il faudra réduire la marge */
+
+}
+
+footer{
+    color: #111; font-family: 'Open Sans', sans-serif; font-size: 15px; font-weight: 300; margin: 100px 0; text-align: center;
+
+}
+
+
+ /*éléments du jeu */
 #game{
-    background-color:rgb(245, 193, 115);
-    border: 2px solid rebeccapurple;
+    background-color: #ac988d;
+    border: 9px solid #b77b84;
     width: 100%;
     height: 200px;
+    margin: 0 0 15px;
 }
 
 #character{
     width: 20px;
     height: 50px;
-    border: 2px solid black;
-    background-color: blue;
+    border: 2px solid #000000;
+    background-color: #1974c4;
     position: relative;
     top: 150px;
 }
@@ -40,15 +69,21 @@
     top: 130px;
     left: 100%;
     height: 50px;
-    border: 2px solid black;
-    background-color: brown;
+    border: 2px solid #000000;
+    background-color: #9d68a5;
     display: inline-block;
 }
-
-
 @keyframes jump{
      0%{top: 150px;}
      40%{top: 100px;}
      60%{top: 100px;}
      100%{top: 150px;}
 }
+
+/*Palette CSS: 
+.color1 {color: #1974c4;}
+.color2 {color: #9d68a5;}
+.color3 {color: #b77b84;}
+.color4 {color: #ac988d;}
+.color5 {color: #a6a6a3;}
+*/
