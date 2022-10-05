@@ -56,7 +56,7 @@ var gameLoop = setInterval(function () {
             obstacleContainer.remove(obs)
 
             alert("Tu as perdu sale Fraude rafraichi la page pour rejouer, et ton Score était: " + (score));
-            clearInterval(checkCollision);
+            clearInterval(gameLoop);
         }
 
         //// on check si on a jump au dessus d'un bloc
@@ -72,7 +72,7 @@ var gameLoop = setInterval(function () {
         obstacleAnim(obs)
 
 
-        document.getElementById("scoretexte").innerHTML = (parseInt(score));
+        document.getElementsByClassName("scoretexte")[0].innerHTML = (parseInt(score));
         document.getElementById("leftObstacle").innerHTML = (parseInt(blockLeft)); // va bug si plusieurs obstacles mais on le laisse pour debug
         document.getElementById("leftTrigger").innerHTML = (parseInt(positionTrigger));
     })
