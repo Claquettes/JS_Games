@@ -3,8 +3,6 @@ const obstacleBaseOffset = document.getElementById("game").clientWidth; // déca
 
 var character = document.getElementById("character");
 var obstacleContainer = document.getElementById("obstacle-container");
-var triggerScore = document.getElementById("triggerScore");
-var positionTrigger = parseInt(window.getComputedStyle(triggerScore).getPropertyValue("left"));
 
 let score = 0;
 let temps = 440;
@@ -73,8 +71,6 @@ var gameLoop = setInterval(function () {
 
 
         document.getElementsByClassName("scoretexte")[0].innerHTML = (parseInt(score));
-        document.getElementById("leftObstacle").innerHTML = (parseInt(blockLeft)); // va bug si plusieurs obstacles mais on le laisse pour debug
-        document.getElementById("leftTrigger").innerHTML = (parseInt(positionTrigger));
     })
 }, 10);
 
