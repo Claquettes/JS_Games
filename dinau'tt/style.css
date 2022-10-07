@@ -20,12 +20,21 @@ h1 {
 }
 
 .credits{
-    color: #111; font-family: 'Open Sans', sans-serif; font-size: 30px; font-weight: 300; line-height: 32px; margin: 0 0 280px; text-align: center; /*280 de marge pour faire le footer, si on change la taille des crédits il faudra réduire la marge */
+    color: #111; font-family: 'Open Sans', sans-serif; font-size: 30px; font-weight: 300; line-height: 32px; margin: 0 0 2px; text-align: center; 
+}
 
+#leaderboard{
+    color: #111; font-family: 'Open Sans', sans-serif; font-size: 20px; font-weight: 300; line-height: 32px; margin: 0 0 2px; text-align: center; padding: 20px;
+}
+
+table{
+    color: #111; font-family: 'Open Sans', sans-serif; font-size: 20px; font-weight: 300; line-height: 32px;
+    text-align: center;    
+    margin: 0 auto;
 }
 
 footer{
-    color: #111; font-family: 'Open Sans', sans-serif; font-size: 15px; font-weight: 300; margin: 100px 0; text-align: center;
+    color: #111; font-family: 'Open Sans', sans-serif; font-size: 15px; font-weight: 300; text-align: center; width: 100%; background-color: #ac988d; 
 
 }
 
