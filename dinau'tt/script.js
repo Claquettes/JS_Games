@@ -85,3 +85,16 @@ let ob = setInterval(function(){
 var timer = setInterval(function(){
     clock++;
 }, 1000);
+
+// procédure qui augmente la vitesse de l'obstacle toutes les 10 secondes d'une quantité aléatoire, jusqu'a 10 de speed
+var changeSpeed = setInterval(function(){
+    if(clock>=10){
+        if(speed<10){
+            speed=speed+(Math.random());
+            clock=0;
+            console.log(speed);
+        }
+    }
+}, 750);
+
+
