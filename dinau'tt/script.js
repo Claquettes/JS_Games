@@ -7,6 +7,7 @@ var obstacleContainer = document.getElementById("obstacle-container");
 let score = 0;
 let temps = 440;
 let speed = 6; // px/10ms
+let clock = 0; //en secondes
 
 let obstacles = [];
 
@@ -48,7 +49,7 @@ var gameLoop = setInterval(function () {
         var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top")); //recupère la valeur sur l'axe y du char//
         var blockLeft = parseInt(window.getComputedStyle(obs).getPropertyValue("left")); //recupère la valeur sur l'axe x du block//
 
-        //// On vérifie si on a perdu
+        // On vérifie si on a perdu
         if (blockLeft < 20 && blockLeft > 0 && characterTop >= 130) {
             obstacles.splice(idx, 1); // on cancel l'animation
 
@@ -56,7 +57,7 @@ var gameLoop = setInterval(function () {
             clearInterval(gameLoop);
         }
 
-        //// on check si on a jump au dessus d'un bloc
+        // On check si on a jump au dessus d'un bloc
         if (blockLeft < 0) {
             score++;
 
@@ -68,7 +69,6 @@ var gameLoop = setInterval(function () {
         // On anime l'obstacle
         obstacleAnim(obs)
 
-
         document.getElementsByClassName("scoretexte")[0].innerHTML = (parseInt(score));
     })
 }, 10);
@@ -79,3 +79,9 @@ let ob = setInterval(function(){
     addNewObstacle()
     //TODO change speed
 }, 2000);
+
+
+// Horloge qui augmente la clock toutes les secondes
+var timer = setInterval(function(){
+    clock++;
+}, 1000);
