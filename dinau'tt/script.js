@@ -8,18 +8,75 @@ let score = 0;
 let temps = 440;
 let speed = 6; // px/10ms
 let clock = 0; //en secondes
+let gravityPosition = -1; // -1 = bas, 1 = haut; -1 par defaut NE METTEZ PAS 0! on se sert de la valeur negative pour inverser les animations
 
 let obstacles = [];
 
 // fonction qui fait sauter à l'input
 function jump() {
-    if (character.classList != "playAnimation") {
-        character.classList.add("playAnimation");
-        setTimeout(function () {
-            character.classList.remove("playAnimation");
-        }, 500);
+    //si le personnage est en bas, on le fait sauter
+    if (gravityPosition == -1){
+        if (character.classList != "playAnimation") {
+            character.classList.add("playAnimation");
+            setTimeout(function () {
+                character.classList.remove("playAnimation");
+            }, 500);
+    }}
+    else{   //si le personnage est en haut, on le fait descendre
+        if (character.classList != "playAnimationJumpInverse") {
+            character.classList.add("playAnimationJumpInverse");
+            setTimeout(function () {
+                character.classList.remove("playAnimationJumpInverse");
+            }, 500);
     }
 }
+}
+//fonction qui inverse la gravité
+let changeGravity =function () {
+    if (gravityPosition == -1) {
+    if (character.classList != "playAnimationDownToUp") {  
+        character.classList.add("playAnimationDownToUp");
+        setTimeout(function () {
+            character.classList.remove("playAnimationDownToUp");
+        //on fait une rotation de 180°
+        character.style.transform = "rotate(180deg)";    
+        }, 500);
+            gravityPosition *= -1; //1 = haut, -1 = bas
+    }
+}
+    else {
+        if (character.classList != "playAnimationUpToDown") {
+            character.classList.add("playAnimationUpToDown");
+            setTimeout(function () {
+                character.classList.remove("playAnimationUpToDown");
+                //on fait une rotation de 180°
+                character.style.transform = "rotate(0deg)";
+            }, 500);
+            gravityPosition *= -1; //1 = haut, -1 = bas
+        }
+    }
+}
+
+//fonction qui maintient le personage si la gravité est inversée
+let gravityHandler = function () {
+    if (gravityPosition == 1) {
+    document.getElementById("character").style.top = "4px";
+    }
+    else {
+    document.getElementById("character").style.top = "150px";
+    }
+   }
+    
+//fonction qui fait sauter si on appuie sur la barre espace et renverse la gravité si on appuie sur la touche "arrow up"
+var keyHandler = function (e) {
+    if (e.key == "ArrowUp") {
+        changeGravity();
+    }
+    if (e.key == " ") {
+        jump();
+    }
+    
+};
 
 let addNewObstacle = function () {
     let newObstacle = document.createElement("div");
@@ -29,6 +86,7 @@ let addNewObstacle = function () {
     return newObstacle;
 }
 
+//procédure pour reset un obstacle
 let resetObstacle = function (obs) {
     obs.style.left = obstacleBaseOffset + "px";
 }
@@ -36,8 +94,7 @@ let resetObstacle = function (obs) {
 // procédure pour animer un obstacle
 let obstacleAnim = function (obs) {
     if (obs.style.left == '')
-        resetObstacle(obs)
-   
+        resetObstacle(obs);
     let currentOffset = parseInt(obs.style.left.replace("px", ""));
     let newOffset = (currentOffset - speed <= -40) ? obstacleBaseOffset : currentOffset - speed;
     obs.style.left = newOffset + "px";
@@ -63,11 +120,12 @@ var gameLoop = setInterval(function () {
 
             obstacles.splice(obstacles.indexOf(obs), 1); // on cancel l'animation
             obs.remove();
-
         }
+        // On check la gravité pour repositionner le personnage au besoin
+        gravityHandler();
 
         // On anime l'obstacle
-        obstacleAnim(obs)
+        obstacleAnim(obs);
 
         document.getElementsByClassName("scoretexte")[0].innerHTML = (parseInt(score));
     })
@@ -80,6 +138,10 @@ let ob = setInterval(function(){
     //TODO change speed
 }, 2000);
 
+//procédure qui check si on a appuyé sur une touche
+let keyLooker = setInterval(function () {
+    document.addEventListener("keydown", keyHandler);
+}, 10);
 
 // Horloge qui augmente la clock toutes les secondes
 var timer = setInterval(function(){
